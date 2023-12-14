@@ -53,8 +53,8 @@ A trust-input-protocol/query message looks like this:
         		"include-governance":"yes",
         		"credentialmetadata":[
           			{
-            		"credential-id": "http://university.example/credentials/1872",
-    			"credential-type": "anoncreds",
+            		"credential-type": "http://university.example/credentials/1872",
+    			"credential-format": "anoncreds",
             		"issuer-did": "did:example:123456abcdef"
           			}
         		]
