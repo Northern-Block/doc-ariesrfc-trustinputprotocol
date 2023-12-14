@@ -54,7 +54,7 @@ A trust-input-protocol/query message looks like this:
         		"credentialmetadata":[
           			{
             		"credential-id": "http://university.example/credentials/1872",
-    			"credential-format": "1",
+    			"credential-type": "anoncreds",
             		"issuer-did": "did:example:123456abcdef"
           			}
         		]
@@ -65,12 +65,6 @@ A trust-input-protocol/query message looks like this:
 The query message says, “ Please tell me if the issuer: ‘did:example:123456abcdef’ is authorized to issue the credential: ‘http://university.example/credentials/1872’. And please give me information about the governance framework that governs the trust registry operation.” Please refer to the Localisation section below for further details.
 
 The `requestor` can send an array of issuers and credentials in their request to the trust registry. If they’re seeking multiple trust inputs from a single trust registry, they can get them in a single request.
-
-The values for `credential-format` are:
-
-    1 = AnonCreds
-    2 = JSON-LD
-    3 = JWT
 
 Additional formats can be supported and added to this above list.
 
@@ -89,7 +83,7 @@ A trust-input/response message looks like this:
       	"response":[	
     {
           		"credential-id": "http://university.example/credentials/1872",
-          		"status": "2",
+          		"status": "valid",
             	"status_date":"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'"
         		}
     	]
@@ -101,13 +95,13 @@ The response returns the current status of the credential issuer(s) against thei
 
 The values for `status` are:
 
-    1 = Not found
-    2 = Valid
-    3 = Expired (not renewed after the previous valid registration period) [when was it expired]
-    4 = Terminated (voluntary termination by the registered party) [when was it terminated]
-    5 = Revoked [when was it revoked]
+    1. 'not-found'
+    2. 'valid'
+    3. 'expired' (not renewed after the previous valid registration period) [when was it expired]
+    4. 'terminated' (voluntary termination by the registered party) [when was it terminated]
+    5. 'revoked' [when was it revoked]
 
-For status values 3, 4, 5; the trust registry will return a date value of when that status became that value.
+For status values expired, terminated and revoked; the trust registry will return a date value of when that status became that value.
 
 A `query` which contains a *wildcard would return all the credentials offered by the issuer’s DID.
 The date format returned in the response is a web UTC format. The date represents  the status changes of status values and the `requestor` can use that info to make their trust decision.
