@@ -64,6 +64,8 @@ A trust-input-protocol/query message looks like this:
 
 The query message says, “ Please tell me if the issuer: ‘did:example:123456abcdef’ is authorized to issue the credential: ‘http://university.example/credentials/1872’. And please give me information about the governance framework that governs the trust registry operation.” Please refer to the Localisation section below for further details.
 
+Note that the credential-type field is meant to be the credential definition. 
+
 The `requestor` can send an array of issuers and credentials in their request to the trust registry. If they’re seeking multiple trust inputs from a single trust registry, they can get them in a single request.
 
 Additional formats can be supported and added to this above list.
@@ -82,7 +84,7 @@ A trust-input/response message looks like this:
       	"governance":"http://university.example/governanceframework",
       	"response":[	
     {
-          		"credential-id": "http://university.example/credentials/1872",
+          		"credential-type": "http://university.example/credentials/1872",
           		"status": "valid",
             	"status_date":"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'"
         		}
