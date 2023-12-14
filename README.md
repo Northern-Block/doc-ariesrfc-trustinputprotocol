@@ -93,13 +93,7 @@ The `response` field is a JSON array of response support descriptor objects that
 
 The response returns the current status of the credential issuer(s) against their authority to issue credentials at the time of `query`.
 
-The values for `status` are:
-
-    1. 'not-found'
-    2. 'valid'
-    3. 'expired' (not renewed after the previous valid registration period) [when was it expired]
-    4. 'terminated' (voluntary termination by the registered party) [when was it terminated]
-    5. 'revoked' [when was it revoked]
+The values for `status` are: 'not-found', 'valid', 'expired' (not renewed after the previous valid registration period) [when was it expired], 'terminated' (voluntary termination by the registered party) [when was it terminated], 'revoked' [when was it revoked].
 
 For status values expired, terminated and revoked; the trust registry will return a date value of when that status became that value.
 
