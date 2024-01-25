@@ -53,7 +53,7 @@ A trust-input-protocol/query message looks like this:
         		"include-governance":"yes",
         		"credentialmetadata":[
           			{
-            		"credential-defn-id": "http://university.example/credentials/1872",
+            		"credential-defn-id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
     			"credential-format": "anoncreds",
             		"issuer-did": "did:example:123456abcdef"
           			}
@@ -82,7 +82,7 @@ A trust-input/response message looks like this:
       	"governance":"http://university.example/governanceframework",
       	"response":[	
     {
-          		"credential-defn-id": "http://university.example/credentials/1872",
+          		"credential-defn-id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
           		"status": "valid",
             	"status_date":"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'"
         		}
